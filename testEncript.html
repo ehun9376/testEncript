@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi Caesar Cipher</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        input {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <label for="encryptText">Text to Encrypt (only english text and number):</label>
+    <input type="text" id="encryptText">
+    <button onclick="encrypt()">Encrypt</button>
+
+    <label for="decryptText">Text to Decrypt (only english text and number):</label>
+    <input type="text" id="decryptText">
+    <button onclick="decrypt()">Decrypt</button>
+
+    <label for="key">Key:</label>
+    <input type="text" id="key">
+
+    <script>
+        var base = [
+            "a", "b", "c", "d", "e", "f", "g", "h", "i",
+            "j", "k", "l", "m", "n", "o", "p", "q", "r",
+            "s", "t", "u", "v", "w", "x", "y", "z", "0",
+            "1", "2", "3", "4", "5", "6", "7", "8", "9"
+        ]
+        function encrypt() {
+            var plaintext = document.getElementById("encryptText").value;
+            var key = document.getElementById("key").value;
+            console.log(plaintext);
+            
+            for (var i = 0; i < plaintext.length; i++) {
+                
+                var index = base.indexOf(key[i]);
+
+            }
+
+        }
+
+        function decrypt() {
+            var ciphertext = document.getElementById("decryptText").value;
+            var key = document.getElementById("key").value;
+          
+        }
+
+    </script>
+</body>
+
+</html>
