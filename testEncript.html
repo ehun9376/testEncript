@@ -35,29 +35,49 @@
     <input type="text" id="key">
 
     <script>
-        var base = [
-            "a", "b", "c", "d", "e", "f", "g", "h", "i",
-            "j", "k", "l", "m", "n", "o", "p", "q", "r",
-            "s", "t", "u", "v", "w", "x", "y", "z", "0",
-            "1", "2", "3", "4", "5", "6", "7", "8", "9"
-        ]
+        var base = ['T', '8', 'r', 'l', 'y', 'b', '0', 'V', 'A', 'w', 'Z', 'n', '7', 'E', '3', 'P', 'K', 'U', 'h', 'q', 'Y', 'X', '6', 'p', 'J', 'N', '5', 'R', 'm', 'a', 'o', 'v', 'I', 'B', 'Q', '2', 'f', 'g', 'c', 'D', 'u', 'G', 'z', 'O', 'x', '9', 'j', 'd', 'L', '4', 'e', 's', 'S', 'k', '1', 'i', 'H', 'C', 'F']
+
         function encrypt() {
             var plaintext = document.getElementById("encryptText").value;
             var key = document.getElementById("key").value;
             console.log(plaintext);
-            
+
+            var encryptedText = "";
             for (var i = 0; i < plaintext.length; i++) {
-                
-                var index = base.indexOf(key[i]);
+
+                var offestIndex = base.indexOf(key[i % key.length]);
+                var baseIndex = base.indexOf(plaintext[i]);
+                var final = (baseIndex + offestIndex);
+                if (final > base.length - 1) {
+                    final = final - base.length;
+                }
+
+                encryptedText += base[final];
 
             }
+
+            alert(encryptedText);
 
         }
 
         function decrypt() {
-            var ciphertext = document.getElementById("decryptText").value;
+            var decryptText = document.getElementById("decryptText").value;
             var key = document.getElementById("key").value;
-          
+
+            var decryptedText = "";
+            for (var i = 0; i < decryptText.length; i++) {
+
+                var offestIndex = base.indexOf(key[i % key.length]);
+                var baseIndex = base.indexOf(decryptText[i]);
+                var final = (baseIndex - offestIndex);
+                if (final < 0) {
+                    final = final + base.length;
+                }
+                console.log(base[final]);
+                decryptedText += base[final];
+            }
+            alert(decryptedText);
+
         }
 
     </script>
